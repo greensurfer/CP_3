@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" href="/styles.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
   <title>Creative Project 3</title>
@@ -10,7 +11,11 @@
 <body>
   <h1>Creative Project 3</h1>
   <div id="app">
-
+    <p>{{current.results[0].question}}</p>
+    <p>{{current.results[0].correct_answer}}</p>
+    <p>{{current.results[0].incorrect_answers[0]}}</p>
+    <p>{{current.results[0].incorrect_answers[1]}}</p>
+    <p>{{current.results[0].incorrect_answers[2]}}</p>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
