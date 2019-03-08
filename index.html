@@ -2,29 +2,62 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="stylesheet" href="/styles.css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <title>Creative Project 3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Trivia</title>
 </head>
 
 <body>
-  <h1>Creative Project 3</h1>
-  <div id="app">
-    <p>{{current.results[0].question}}</p>
-    <p>{{current.results[0].correct_answer}}</p>
-    <p>{{current.results[0].incorrect_answers[0]}}</p>
-    <p>{{current.results[0].incorrect_answers[1]}}</p>
-    <p>{{current.results[0].incorrect_answers[2]}}</p>
-  </div>
+    <h1>Trivia! How Many Can You Get Right?</h1>
+    <div id="app">
+        <div v-if="loading">
+            <p>Loading...</p>
+        </div>
+        <div v-else>
+            <div v-if="showquestions">
+                <div class="questionbox">
+                    <p><b>{{getQuestion}}</b></p>
+                    <div v-for="choice in getChoices">
+                        <div class="option">
+                            <button class="btn btn-primary btn-lg btn-block" v-on:click="selected(choice)" class="{'green': turn}">{{choice}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-else>
+                <div class="questionbox">
+                    <p><b>Grade: {{grade}}%</b></p>
+                    <div v-for="question in questions">
+                        <div class='option'>
+                            <div v-if="question.answered_correctly">
+                                <div class=right>
+                                    <p>Question: {{question.question}}</p>
+                                    <p>You Answered: {{question.correct_answer}}</p>
+                                </div>
+                            </div>
+                            <div v-else>
+                                <div class=wrong>
+                                    <p>Question: {{question.question}}</p>
+                                    <p>Correct Answer: {{question.correct_answer}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/script.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/script.js"></script>
 </body>
 <footer>
-  <center><a href="https://github.com/greensurfer/CP_3.git">Source code</a></center>
+    <center><a href="https://github.com/greensurfer/CP_3.git">Source code</a></center>
 </footer>
 
 </html>
