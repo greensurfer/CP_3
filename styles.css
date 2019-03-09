@@ -1,6 +1,8 @@
 /*  background-color: #F0F0DF;
   background-color: #FF9000;*/
 .questionbox {
+  font-family: 'Averia Sans Libre', cursive;
+  font-size: 15px;
   padding: 20px;
   width: 100%;
   background-color: #f2f2f2;

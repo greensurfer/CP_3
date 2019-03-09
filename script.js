@@ -101,7 +101,6 @@ let app = new Vue({
       }
     },
     tryAgain() {
-      let message = 'Good luck this time! You\'ll do great!';
       this.index = 0;
       this.questions = [];
       this.numRight = 0;
@@ -110,7 +109,6 @@ let app = new Vue({
       this.loading = true;
       this.showquestions = false;
       this.endscreen = false;
-      window.alert(message);
     },
   }
 });
